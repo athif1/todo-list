@@ -155,6 +155,12 @@ app.get("/about", function(req, res) {
   res.render("about");
 })
 
-app.listen(3000, function() {
-  console.log("the server is started ath port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+
+app.listen(port, function() {
+  console.log("server has started successfully");
 })
